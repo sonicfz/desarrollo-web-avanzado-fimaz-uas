@@ -1,0 +1,10 @@
+# Práctica de Laboratorio 4: Integración POO + Herencia + Validaciones + Excepciones
+
+## Objetivo de la práctica
+Construir un mini-sistema orientado a objetos en PHP que simula el examen parcial, integrando todos los pilares vistos en la unidad:
+* **Encapsulamiento:** Protección de los atributos de las clases.
+* **Herencia:** Reutilización del código de la clase base `Usuario` hacia las clases hijas (`Admin`, `Alumno`, e `Invitado`).
+* **Polimorfismo básico:** Implementación del método `getRol()` en todas las clases hijas para que cada una responda de manera específica.
+* **Validación de datos:** Uso de `filter_var()` en el constructor base para asegurar la integridad de la información.
+* **Manejo de excepciones:** Uso de bloques `try/catch` para capturar errores de ejecución de forma segura.
+* **Salida en HTML:** Renderizado dinámico de objetos en una tabla estructurada.
