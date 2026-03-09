@@ -1,2 +1,1 @@
-# desarrollo-web-avanzado-fimaz-uas
-Repositorio de evidencias de la asignatura Desarrollo Web Avanzado – LISI – FIMAZ - UAS
+En el archivo Admin.php aplique la herencia usando extends para que la nueva clase use todo lo que ya tenía en Usuario solo le agregue el metodo getRol para diferenciarlo luego en el index.php genere el objeto Admin y mandé llamar tanto los métodos heredados (getNombre, getCorreo) como el nuevo para demostrar que la estructura funcione
