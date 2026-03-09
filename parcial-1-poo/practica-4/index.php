@@ -10,17 +10,17 @@ $mensajeError = "";
 
 try {
 
-    $objeAdminvalido = new Admin("Jose", "jose9@gmail.com");
+    $objeAdminvalido = new Admin("Carlos", "carlos@gmail.com");
     $usuarios[] = $objeAdminvalido;
     
     $objeAlumnovalido = new Alumno("Abdel", "abdel12@gmail.com", "12131415");
     $usuarios[] = $objeAlumnovalido;
 
-    $objInvitadovalido = new Invitado("Jorge", "jorge13@gmail.com", "Nike");
+    $objInvitadovalido = new Invitado("Alan", "Alan13@gmail.com", "Nike");
     $usuarios[] = $objInvitadovalido;
 
 
-    $objInvalido = new Alumno("Usuario Falso", "correo_sin_arroba.com", "0000");
+    $objInvalido = new Alumno("Messi", "correo.com", "0000");
 
 } catch (Exception $e) {
     $mensajeError = "error controlado: " . $e->getMessage();
