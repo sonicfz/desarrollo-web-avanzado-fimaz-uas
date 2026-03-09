@@ -1,0 +1,2 @@
+en usuario.php arme las clases con sus atributos en privado para no dejar los datos expuestos le puse un constructor para inicializar al usuario rapido y sus getters y setters para poder manipular la información desde fuera sin romper el encapsulamiento.
+lo que hice fue importar la clase genere un usuario nuevo con informacion de prueba y mandé llamar las funciones que programe para que los datos se vean en la pantalla.
