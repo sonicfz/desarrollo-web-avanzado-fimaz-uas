@@ -31,7 +31,7 @@ try {
 </head>
 <body>
 
-    <h1>Tabla de Usuarios</h1>
+    <h1>Lista de Usuarios Registrados</h1>
 
     <?php if ($errorMsg): ?>
         <div class="alerta">
