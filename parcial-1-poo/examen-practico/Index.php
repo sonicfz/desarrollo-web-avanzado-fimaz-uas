@@ -1,15 +1,15 @@
 <?php
 require_once 'Usuario.php';
+require_once 'Admin.php';
+require_once 'Alumno.php';
 
-$usuarios = [];
+$objusuarios = [];
 $errorMsg = "";
 
 try {
-    $usuarios[] = new Admin("Abdel Admin", "Abdelalvarez55@escuela.com",); 
-
-    $usuarios[] = new Alumno("Jose Castillo", "Castillopa97@gmail.com", "23179445");
-
-    $usuarios[] = new Alumno("Carlos Error", "Datos Incorrectos", "2024-999");
+    $objusuarios[] = new Admin("Abdel Gonzalez", "abdelalvarez55@gmail.com");
+    $objusuarios[] = new Alumno("Jose Castillo", "joseca@universidad.edu", "93172487");
+    $uError = new Alumno("Juan Perez", "juan@universidaddu", "2024-001");
 
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
@@ -17,52 +17,42 @@ try {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Usuarios</title>
-    <style>
-        body { font-family: sans-serif; padding: 30px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #444; padding: 10px; text-align: left; }
-        th { background-color: #f0f0f0; }
-        .alerta { color: red; font-weight: bold; border: 1px solid red; padding: 10px; margin-bottom: 10px; }
-    </style>
+    <title>Examen POO</title>
 </head>
 <body>
 
-    <h1>Lista de Usuarios Registrados</h1>
+    <h2>Lista de Usuarios Registrados</h2>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Matrícula</th>
+        </tr>
+
+        <?php
+        foreach($objusuarios as $u) {
+      
+            $matricula = method_exists($u, "getMatricula") ? $u->getMatricula() : "-";
+
+            echo "<tr>";
+            echo "<td>" . $u->getNombre() . "</td>";
+            echo "<td>" . $u->getCorreo() . "</td>";
+            echo "<td>" . $u->getRol() . "</td>";
+            echo "<td>" . $matricula . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
 
     <?php if ($errorMsg): ?>
-        <div class="alerta">
-            AVISO: <?php echo $errorMsg; ?>
-        </div>
+        <p style="color: red;">
+            <b>Error:</b> <?php echo $errorMsg; ?>
+        </p>
     <?php endif; ?>
-
-    <table>
-    <thead>
-     <tr>
-    <th>Nombre</th>
-    <th>Correo</th>
-    <th>Rol</th>
-    <th>Matrícula</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($usuarios as $u): ?>
-    <tr>
-    <td><?php echo $u->getNombre(); ?></td>
-    <td><?php echo $u->getCorreo(); ?></td>
-    <td><?php echo $u->getRol(); ?></td>
-    <td>
-    <?php 
-    echo ($u instanceof Alumno) ? $u->getMatricula() : "---"; 
-    ?>
-    </td>
-    </tr>
-    <?php endforeach; ?>
-    </tbody>
-    </table>
 
 </body>
 </html>
