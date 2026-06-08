@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# Evita reescribir archivos y carpetas reales
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Ruta raíz
+RewriteRule ^$ index.php [L]
+
+# Ruta con id (editar)
+RewriteRule ^productos/edit/([0-9]+)/?$ index.php?route=productos/edit&id=$1 [L,QSA]
+
+# Ruta API con id (GET)
+RewriteRule ^api/productos/([0-9]+)/?$ index.php?route=api/productos&id=$1 [L,QSA]
+
+# Paginación amigable del catálogo
+RewriteRule ^catalogo/page/([0-9]+)/?$ index.php?route=catalogo&page=$1 [L,QSA]
+
+# Búsqueda amigable del catálogo
+RewriteRule ^catalogo/buscar/(.+?)/?$ index.php?route=catalogo&buscar=$1 [L,QSA]
+
+# Búsqueda amigable del catálogo con paginación
+RewriteRule ^catalogo/buscar/(.+?)/page/([0-9]+)/?$ index.php?route=catalogo&buscar=$1&page=$2 [L,QSA]
+
+# Paginación amigable de productos admin
+RewriteRule ^productos/page/([0-9]+)/?$ index.php?route=productos&page=$1 [L,QSA]
+
+# Rutas amigables generales
+RewriteRule ^(.+?)/?$ index.php?route=$1 [L,QSA]
